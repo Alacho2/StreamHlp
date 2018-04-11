@@ -2,19 +2,16 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.apache.commons.lang3.time.StopWatch;
 
 public class WindowController extends Application {
 
-    StopWatch sw = new StopWatch();
-    FileHandler file = new FileHandler();
 
-    public WindowController() throws Exception {
+    public WindowController() {
 
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setTitle("Diamond");
         stage.setMinHeight(720);
         stage.setMinWidth(1280);

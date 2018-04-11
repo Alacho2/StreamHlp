@@ -1,15 +1,21 @@
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 
 public class FileHandler {
     PrintWriter pw;
 
-    public FileHandler() throws  Exception {
+    public FileHandler() throws URISyntaxException, FileNotFoundException, UnsupportedEncodingException {
         String fileName = giefNewName();
-            pw = new PrintWriter(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath() + fileName +  ".txt");
-            //file = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath() + fileName +  ".txt");
-            //file.
+            //Get the path of jar directory.
+            pw = new PrintWriter(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath() + fileName +  ".txt", "UTF-8");
         System.out.println(giefNewName());
+    }
+
+    public void addALine(String whattime){
+        pw.append(whattime);
     }
 
     public String giefNewName(){

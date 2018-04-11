@@ -21,11 +21,26 @@
     </build>
 
     <dependencies>
+        <!--
+        https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+        Stopwatch
+        -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
+
+        <!--
+        https://mvnrepository.com/artifact/com.1stleg/jnativehook
+        C-Lib for global keylistener
+        -->
+        <dependency>
+            <groupId>com.1stleg</groupId>
+            <artifactId>jnativehook</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+
 
     </dependencies>
 
