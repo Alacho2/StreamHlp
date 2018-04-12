@@ -12,13 +12,20 @@ public class ActionHandler {
 
     StopWatch sw;
     FileHandler file;
+    static WindowController wc;
 
-    public ActionHandler() throws FileNotFoundException, UnsupportedEncodingException, URISyntaxException {
+    public ActionHandler() {
         sw = new StopWatch();
+        try {
         file = new FileHandler();
-    }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
 
-    public void action(){
 
     }
 

@@ -1,0 +1,13 @@
+#mainLabel{
+    -fx-font-size: 50px;
+}
+
+#welcomeLabel{
+    -fx-text-alignment: center;
+    -fx-text-fill: rgba(0, 0, 0, 0.3);
+}
+
+#timeLabel {
+    -fx-font-size: 30px;
+    -fx-text-alignment: center;
+}
