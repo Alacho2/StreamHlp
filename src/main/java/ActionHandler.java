@@ -1,32 +1,38 @@
-import org.apache.commons.lang3.time.StopWatch;
-
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
-import java.net.URISyntaxException;
-
 //Implement JNativeHook NativeKeyEvent.VK_-keycomb-
 //Add action-method for what to happen
 //Add
 
+import javafx.event.ActionEvent;
+import javafx.stage.Popup;
+import org.apache.commons.lang3.time.StopWatch;
+
+
 public class ActionHandler {
 
-    StopWatch sw;
-    FileHandler file;
+    static StopWatch stopwatch;
     static WindowController wc;
+    //FileHandler fh = new FileHandler();
 
-    public ActionHandler() {
-        sw = new StopWatch();
-        try {
-        file = new FileHandler();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-
+    public ActionHandler(){
+        stopwatch = new StopWatch();
     }
 
+    public void startWatch(ActionEvent event){
+        try {
+            stopwatch.start();
+            WindowController.timeText.setText("Running");
+        } catch(IllegalStateException ise){
+            AlertBox.display("Running", "Stopwatch already running");
+        }
+    }
+
+    public void stopWatch(ActionEvent event){
+        try{
+            stopwatch.stop();
+            stopwatch.reset();
+            WindowController.timeText.setText("Not running");
+        } catch(IllegalStateException ise){
+            AlertBox.display("Stopped", "Stopwatch isn't running");
+        }
+    }
 }

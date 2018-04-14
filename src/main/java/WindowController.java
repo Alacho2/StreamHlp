@@ -1,22 +1,24 @@
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.apache.commons.lang3.time.StopWatch;
 
 
 public class WindowController extends Application {
 
-    StopWatch sw = new StopWatch();
+    ActionHandler ah = new ActionHandler();
     GridPane pane;
     Label mainTitle;
     Label welcomeText;
-    Label timeText;
+    Button start = new Button();
+    Button stop = new Button();
+    static Label timeText;
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage){
         stage.setTitle("Diamond");
         stage.setMinHeight(360);
         stage.setMinWidth(640);
@@ -30,8 +32,16 @@ public class WindowController extends Application {
     }
 
     public void setMystage(){
+        buttonController();
         labelController();
         paneController();
+    }
+
+    public void buttonController() {
+        start = new Button("Start");
+        start.setOnAction(ah::startWatch);
+        stop = new Button("Stop");
+        stop.setOnAction(ah::stopWatch);
     }
 
     private void paneController() {
@@ -42,6 +52,8 @@ public class WindowController extends Application {
         pane.add(mainTitle, 0, 0);
         pane.add(welcomeText, 0, 1);
         pane.add(timeText, 0, 2);
+        pane.add(start, 0,3);
+        pane.add(stop, 1, 3);
     }
 
     private void labelController() {
