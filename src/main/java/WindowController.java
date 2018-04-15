@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -11,10 +12,11 @@ public class WindowController extends Application {
 
     ActionHandler ah = new ActionHandler();
     GridPane pane;
-    Label mainTitle;
-    Label welcomeText;
-    Button start = new Button();
-    Button stop = new Button();
+    Text mainTitle;
+    Text welcomeText;
+    Button start;
+    Button stop;
+    Button addTime;
     static Label timeText;
 
     @Override
@@ -40,6 +42,8 @@ public class WindowController extends Application {
     public void buttonController() {
         start = new Button("Start");
         start.setOnAction(ah::startWatch);
+        addTime = new Button("Log time");
+        addTime.setOnAction(ah::writeToFile);
         stop = new Button("Stop");
         stop.setOnAction(ah::stopWatch);
     }
@@ -53,16 +57,17 @@ public class WindowController extends Application {
         pane.add(welcomeText, 0, 1);
         pane.add(timeText, 0, 2);
         pane.add(start, 0,3);
+        pane.add(addTime, 0, 4);
         pane.add(stop, 1, 3);
     }
 
     private void labelController() {
-        mainTitle = new Label("StreamHlp");
+        mainTitle = new Text("StreamHlp");
         mainTitle.setId("mainLabel");
-        welcomeText = new Label("Welcome to StreamHlp. StreamHlp is a small utility that \n" +
+        welcomeText = new Text("Welcome to StreamHlp. StreamHlp is a small utility that \n" +
                                 "help you keep track of your highlights in a stream");
         welcomeText.setId("welcomeLabel");
-        timeText = new Label("Something");
+        timeText = new Label("Not running");
         timeText.setId("timeLabel");
     }
 }
