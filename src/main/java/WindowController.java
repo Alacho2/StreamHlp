@@ -16,7 +16,7 @@ public class WindowController extends Application {
     Text welcomeText;
     Button start;
     Button stop;
-    Button addTime;
+    static Button addTime;
     static Label timeText;
 
     @Override
