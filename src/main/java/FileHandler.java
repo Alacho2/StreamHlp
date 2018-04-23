@@ -24,7 +24,6 @@ public class FileHandler {
         try {
             fw.write(whattime + System.lineSeparator());
             fw.flush();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,7 +42,6 @@ public class FileHandler {
         curTime = curTime.replace(":", ".");
         curTime = curTime.substring(0, 19);
         curTime = "Stream" + curTime + ".txt";
-
         return curTime;
     }
 }

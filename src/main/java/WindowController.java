@@ -21,7 +21,7 @@ public class WindowController extends Application {
 
     @Override
     public void start(Stage stage){
-        stage.setTitle("Diamond");
+        stage.setTitle("King Landor");
         stage.setMinHeight(360);
         stage.setMinWidth(640);
 
